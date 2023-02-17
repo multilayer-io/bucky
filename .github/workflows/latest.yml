@@ -1,0 +1,24 @@
+name: Dockerhub Workflow
+on:
+  push:
+    branches:
+      - main
+    
+jobs:
+  docker_build:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
+    env:
+      IMAGE_REPOSITORY: multilayerlabs/bucky
+      IMAGE_TAG: gcsfuse-latest
+    steps:
+    - name: Github repository
+      uses: actions/checkout@v3
+    - name: Dockerhub - login, build, and push
+      run: |
+        docker login -u multilayerlabs -p '${{ secrets.DOCKERHUB_TOKEN }}'
+        docker build -t $IMAGE_REPOSITORY:${{ env.IMAGE_TAG }} gcsfuse
+        docker push $IMAGE_REPOSITORY:${{ env.IMAGE_TAG }}
+    
