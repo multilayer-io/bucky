@@ -2,7 +2,7 @@
 
 Nginx webserver serving content from GCS (gcsfuse) or S3 (s3fs-fuse). Bucky connects nginx containers with private buckets (`gcs` and `s3`) to host them private or public in your own VPC/network. 
 
-At [Multilayer](multilayer.io) we invest in Open Source, and most of our solutions are based on projects such as Kubernetes, Airflow, Snowplow, dbt, elementary-data, Airbyte, to name a few. `Bucky` was created to host [elementary-data](https://www.elementary-data.com/) reports for our internal `dbt-core` project and our clients. 
+At [Multilayer](multilayer.io) we invest in Open Source, and most of our solutions are based on projects such as Kubernetes, Airflow, Snowplow, dbt, elementary-data, Airbyte, to name a few. `Bucky` was created to host [elementary-data](https://www.elementary-data.com/) reports for our internal `dbt-core` project. 
 
 > Note: the project was inspired by [k8s-storage-buckets](https://github.com/ageapps/k8s-storage-buckets)
 
